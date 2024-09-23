@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plan Toggle</title>
+    <style>
+        /* Container for the toggle switch */
+        .toggle-container {
+            display: inline-block;
+            position: relative;
+            border-radius: 30px;
+            background-color: #f1f1f1;
+            padding: 1px;
+            width: 200px;
+            height: 50px;
+        }
+
+        /* Labels for Monthly and Annually */
+        .toggle-container label {
+            position: absolute;
+            width: 60%;
+            height: 100%;
+            line-height: 45px;
+            text-align: center;
+            font-size: 17px;
+            cursor: pointer;
+            transition: color 0.5s;
+        }
+
+        label[for="monthly"] {
+            left: -10px;            
+            color: black;
+        }
+
+        label[for="annually"] {
+            right: -10px;
+            /* left: 10px; */
+            color: black;
+        }
+
+        /* The slider that moves based on the selection */
+        .slider {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 90px;
+            height: 40px;
+            background-color: #6a0dad;
+            border-radius: 30px;
+            transition: all 0.5s;
+        }
+
+        /* Radio buttons - hidden but still functional */
+        input[type="radio"] {
+            display: none;
+        }
+
+        /* When Monthly is selected */
+        input#monthly:checked ~ .slider {
+            left: 6px;
+        }
+
+        input#monthly:checked ~ label[for="monthly"] {
+            color: white;
+            z-index: 1;
+        }
+
+        /* When Annually is selected */
+        input#annually:checked ~ .slider {
+            left: 106px;
+        }
+
+        input#annually:checked ~ label[for="annually"] {
+            color:white;
+            z-index: 1;
+
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="toggle-container">
+    <!-- Radio buttons for Monthly and Annually -->
+    <input type="radio" name="plan" id="monthly" checked>
+    <input type="radio" name="plan" id="annually">
+
+    <!-- The labels for the options -->
+    <label for="monthly">Monthly</label>
+    <label for="annually">Annually</label>
+
+    <!-- The slider element -->
+    <div class="slider"></div>
+</div>
+
+</body>
+</html>
